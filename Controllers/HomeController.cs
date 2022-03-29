@@ -24,13 +24,13 @@ namespace Mission13.Controllers
 
         public IActionResult Index(string teamName)
         {
-            // If a key-value pair of "id" exists
+            
             HttpContext.Session.Remove("id");
 
-            // assign teamName in this ViewBag.TeamName
+            // assign teamName for ViewBag.TeamName
             ViewBag.TeamName = teamName ?? "Home";
 
-            // get the record of bowlers of a certain team
+            // get record of bowlers from teamName
             var record = bowler.Bowlers
                 .Include(x => x.Team)
                 .Where(x => x.Team.TeamName == teamName || teamName == null)
