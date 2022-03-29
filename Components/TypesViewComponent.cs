@@ -8,7 +8,7 @@ namespace Mission13.Components
 {
     public class TypesViewComponent : ViewComponent
     {
-        // get the context of Bowler
+        // bowlingleaguecontext
         private BowlingLeagueDbContext bowler { get; set; }
 
         // constructor
@@ -20,10 +20,10 @@ namespace Mission13.Components
         // invoke
         public IViewComponentResult Invoke()
         {
-            // get the route data of teamName and assign that in ViewBag.SelectedTeam
+            // route data of teamName --> assign in ViewBag.SelectedTeam
             ViewBag.SelectedTeam = RouteData?.Values["teamName"] ?? "";
 
-            // get team names from context
+            // get team names
             var teams = bowler.Bowlers
                 .Select(x => x.Team.TeamName)
                 .Distinct()

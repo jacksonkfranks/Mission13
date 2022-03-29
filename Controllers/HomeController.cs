@@ -71,12 +71,8 @@ namespace Mission13.Controllers
         [HttpGet]
         public IActionResult Edit(int bowlerid)
         {
-            //ViewBag.New = false;
 
             ViewBag.Teams = bowler.Teams.ToList();
-
-            // Set a key-value pair of "id" with bowlerID (string type)
-            // HttpContext.Session.SetString("id", bowlerId.ToString());
 
             var record = bowler.Bowlers.Single(x => x.BowlerID == bowlerid);
 
